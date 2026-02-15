@@ -77,14 +77,13 @@ const fullProjects = [
 <template>
   <div class="bg-cream min-h-screen pb-20">
     
-    <div class="py-24 text-center px-6">
-       <h1 class="font-retro text-6xl md:text-7xl uppercase mb-6 inline-block leading-tight">
+    <div class="py-16 md:py-24 text-center px-4"> <h1 class="font-retro text-4xl md:text-7xl uppercase mb-6 inline-block leading-tight">
          Mes 
-         <span class="bg-purple-500 text-white px-4 py-2 mx-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform -skew-x-3">
+         <span class="bg-orange-500 text-white px-2 md:px-4 py-1 md:py-2 mx-1 md:mx-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] md:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform -skew-x-3">
            Réalisations
          </span>
        </h1>
-       <p class="font-body text-xl max-w-2xl mx-auto text-gray-600 mt-6">
+       <p class="font-body text-lg md:text-xl max-w-2xl mx-auto text-gray-600 mt-4 md:mt-6">
          Plongez dans les détails. Chaque projet a sa propre histoire, sa propre palette et ses propres défis. 🎨
        </p>
     </div>
