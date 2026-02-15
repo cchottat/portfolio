@@ -75,7 +75,7 @@ const closeMenu = () => {
             {{ link.name }}
             </RouterLink>
 
-            <a href="mailto:tonemail@gmail.com" class="mt-4 bg-black text-white px-10 py-5 font-body font-bold text-2xl rounded-full shadow-[4px_4px_0px_0px_#A855F7] border-2 border-black active:translate-y-1 active:shadow-none">
+            <a href="mailto:hottatclara@gmail.com" class="mt-4 bg-black text-white px-10 py-5 font-body font-bold text-2xl rounded-full shadow-[4px_4px_0px_0px_#A855F7] border-2 border-black active:translate-y-1 active:shadow-none">
               Me Contacter
             </a>
         </div>
