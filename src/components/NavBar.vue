@@ -22,10 +22,10 @@ const closeMenu = () => {
 </script>
 
 <template>
-  <nav class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md py-4 border-b-2 border-black">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+  <nav class="sticky top-0 z-50 bg-cream border-b-2 border-black py-4">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
       
-      <RouterLink to="/" class="text-2xl md:text-3xl font-retro uppercase text-black z-50 relative" @click="closeMenu">
+      <RouterLink to="/" class="text-2xl md:text-3xl font-retro uppercase text-black" @click="closeMenu">
         Clara<span class="text-pop-raspberry">.</span>H
       </RouterLink>
 
@@ -39,39 +39,46 @@ const closeMenu = () => {
         >
           {{ link.name }}
         </RouterLink>
-        
         <a href="mailto:tonemail@gmail.com" class="bg-black text-white px-6 py-2 rounded-full font-bold hover:bg-pop-raspberry hover:scale-105 transition-all border-2 border-transparent hover:border-black">
           Me Contacter
         </a>
       </div>
 
-      <button @click="toggleMenu" class="mobile-burger z-50 w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none">
-        <span :class="{'rotate-45 translate-y-2.5 bg-pop-raspberry': isMenuOpen, 'bg-black': !isMenuOpen}" class="block w-8 h-1 transition-all duration-300 rounded-full"></span>
-        <span :class="{'opacity-0': isMenuOpen, 'bg-black': !isMenuOpen}" class="block w-8 h-1 transition-all duration-300 rounded-full"></span>
-        <span :class="{'-rotate-45 -translate-y-2.5 bg-pop-raspberry': isMenuOpen, 'bg-black': !isMenuOpen}" class="block w-8 h-1 transition-all duration-300 rounded-full"></span>
+      <button @click="toggleMenu" class="mobile-burger z-50 w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none" v-if="!isMenuOpen">
+        <span class="block w-8 h-1 bg-black rounded-full"></span>
+        <span class="block w-8 h-1 bg-black rounded-full"></span>
+        <span class="block w-8 h-1 bg-black rounded-full"></span>
       </button>
 
       <div 
         v-if="isMenuOpen"
-        class="fixed inset-0 bg-cream z-40 flex flex-col items-center justify-center gap-10 animate-fade-in md:hidden"
+        class="fixed inset-0 z-[60] bg-cream flex flex-col animate-fade-in md:hidden"
         style="height: 100vh; width: 100vw;"
       >
-        <div class="flex flex-col items-center gap-8">
+        <div class="flex justify-end p-6">
+            <button @click="closeMenu" class="p-2 focus:outline-none hover:bg-gray-200 rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-10 h-10 text-black">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex-grow flex flex-col items-center justify-center gap-10 -mt-20">
             <RouterLink 
             v-for="link in links" 
             :key="link.name" 
             :to="link.path"
             @click="closeMenu"
-            active-class="text-pop-purple"
-            class="font-retro text-4xl uppercase text-black hover:text-pop-orange transition-all"
+            active-class="text-pop-purple decoration-wavy underline decoration-4"
+            class="font-retro text-5xl uppercase text-black hover:text-pop-orange transition-all"
             >
             {{ link.name }}
             </RouterLink>
-        </div>
 
-        <a href="mailto:tonemail@gmail.com" class="bg-black text-white px-8 py-4 font-body font-bold text-xl rounded-full shadow-[4px_4px_0px_0px_#A855F7]">
-          Me Contacter
-        </a>
+            <a href="mailto:tonemail@gmail.com" class="mt-4 bg-black text-white px-10 py-5 font-body font-bold text-2xl rounded-full shadow-[4px_4px_0px_0px_#A855F7] border-2 border-black active:translate-y-1 active:shadow-none">
+              Me Contacter
+            </a>
+        </div>
       </div>
 
     </div>
@@ -79,33 +86,16 @@ const closeMenu = () => {
 </template>
 
 <style scoped>
-/* --- ZONE DE RÉPARATION D'URGENCE --- */
-
-/* 1. Sur Mobile (moins de 768px) : ON CACHE LE MENU BUREAU */
+/* CSS BOURRIN POUR FORCER L'AFFICHAGE/MASQUAGE */
 @media (max-width: 768px) {
-  .desktop-menu {
-    display: none !important; /* Le !important force le masquage */
-  }
-  .mobile-burger {
-    display: flex !important;
-  }
+  .desktop-menu { display: none !important; }
+  .mobile-burger { display: flex !important; }
 }
-
-/* 2. Sur Ordi (plus de 768px) : ON AFFICHE LE BUREAU et CACHE LE BURGER */
 @media (min-width: 769px) {
-  .desktop-menu {
-    display: flex !important;
-  }
-  .mobile-burger {
-    display: none !important;
-  }
+  .desktop-menu { display: flex !important; }
+  .mobile-burger { display: none !important; }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out;
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+.animate-fade-in { animation: fadeIn 0.2s ease-out; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
