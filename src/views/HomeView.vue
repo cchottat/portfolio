@@ -107,11 +107,13 @@ const projects = [
 
     <section class="max-w-7xl mx-auto px-6 py-20">
       
-      <div class="mb-20 text-center">
-        <h2 class="font-retro text-6xl uppercase inline-block">
-          Mes <span class="bg-purple-500 text-white px-4 py-1 mx-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform -skew-x-3">Réalisations</span>
+      <div class="mb-20 text-center px-2"> <h2 class="font-retro text-3xl md:text-6xl uppercase inline-block leading-snug">
+          Mes 
+          <span class="bg-orange-500 text-white px-2 md:px-4 py-1 mx-1 md:mx-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] md:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform -skew-x-3 text-3xl md:text-6xl">
+            Réalisations
+          </span>
         </h2>
-        <p class="mt-6 font-body text-xl text-gray-500">Une sélection de mes projets favoris</p>
+        <p class="mt-6 font-body text-lg md:text-xl text-gray-500">Une sélection de mes projets favoris</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
